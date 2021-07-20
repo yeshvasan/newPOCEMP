@@ -1,0 +1,64 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onAddEmployee(employeeForm)" #employeeForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="empCode"
+        [ngModel]="employee?.empCode"
+        placeholder="Employee Code"
+        required
+        #empCode="ngModel"
+      />
+      <mat-error *ngIf="empCode.invalid"
+        >Please Enter the Employee Code</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        name="empName"
+        placeholder="Employee Name"
+        [ngModel]="employee?.empName"
+        required
+        #empName="ngModel"
+      />
+      <mat-error *ngIf="empName.invalid"
+        >Please Enter the Employee Name</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        name="empRole"
+        placeholder="Employee Role"
+        [ngModel]="employee?.empRole"
+        required
+        #empRole="ngModel"
+      />
+      <mat-error *ngIf="empRole.invalid"
+        >Please Enter the Employee Role</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Employee Date Of Birth"
+        name="empDob"
+        [ngModel]="employee?.empDob"
+        required
+        #empDob="ngModel"
+      />
+      <mat-error *ngIf="empDob.invalid">Please Select Date of Birth</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button color="primary" mat-raised-button type="submit">
+      {{ this.mode | titlecase }}
+    </button>
+  </form>
+</mat-card>

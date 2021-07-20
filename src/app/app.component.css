@@ -1,0 +1,13 @@
+main{
+    width:80%;
+    margin:auto;
+    padding:2rem;
+    flex: 1 1 auto;
+}
+
+main > h2{
+    text-align:center;
+    padding:2rem;
+    color:navy;
+    font-weight:900;
+}
